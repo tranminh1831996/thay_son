@@ -1,0 +1,40 @@
+Bài 1. TỔ HỢP
+
+Khái niệm về Tổ hợp:
+Ví dụ: Tổ hợp chập k=3 của n=5 phần tử {1, 2, 3, 4, 5} là:
+
+1: 1 2 3
+2: 1 2 4
+3: 1 2 5
+4: 2 3 4
+5: 2 3 5
+6: 3 4 5
+
+.INP
+5 3 4
+
+.OUT
+2 3 4
+
+Bài 2. Hoán vị Josephus
+n <= 18 tỷ
+
+Xây dựng 2 version trong cùng một chương trình:
+
+void Version1();
+void Version2();
+
+void XuLy() {
+	if (n <= 20) Version1();
+		else Version2();
+}
+
+DOITIEN.INP
+2 3
+1 2
+
+DOITIEN.OUT
+2
+1 2
+
+

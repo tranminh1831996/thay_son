@@ -1,0 +1,33 @@
+Bài toán Qua cầu: Sử dụng kỹ thuật Tham lam + Quy hoạch động
+
+Sắp xếp mảng a theo thứ tự tăng dần
+
+Gọi F[i] là thời gian ngắn nhất để a[1..i] qua cầu
+
+- Chiến lược 1: a[1] kẹp a[n] để qua cầu, rồi a[1] quay trở về
+	F[i] = a[i] + a[1] + F[i-1]
+
+- Chiến lược 2:
+	+ a[1] kẹp a[2] qua cầu, sau đó a[2] ở lại, a[1] quay trở về
+	+ a[1] đưa đèn cho a[n-1] và a[n] (hai thằng chậm nhất)
+	+ a[n-1] kẹp a[n] qua cầu rồi đưa đèn cho a[2] quay trở về
+
+	F[i] = a[2] + a[1] + a[i] + a[2] + F[i-2]
+	     = a[1] + 2*a[2] + a[i] + F[i-2]
+
+F[i] = min(a[i] + a[1] + F[i-1], a[1] + 2*a[2] + a[i] + F[i-2])
+	
+
+Fibonaci khác nhau nhiều nhất
+- Tìm các số Fibonaci <= x: 1 2 3 5
+- Gọi L[i, j] là độ dài lớn nhất khi phân tích j thành tổng các số fibonaci khác nhau chọn từ a[1..i]
+	Vậy: Có 2 khả năng xảy ra:
+	+ Chọn a[i]
+		Tất nhiên: Phải kiểm tra điều kiện j >= a[i]
+		L[i, j] = 1 + L[i-1, j-a[i]]
+	+ Không chọn a[i]
+		L[i, j] = L[i-1, j]
+	Kết quả của bài toán là: L[i, j] = max(1 + L[i-1, j-a[i]], L[i-1, j]);
+
+
+
